@@ -34,7 +34,7 @@ Among various machine learning models (e.g., XGBoost, Random Forest, SVM), which
 ## 3.Preprocessing Steps
 
 ### 3.1.Libraries
-In this project, the libraries OpenCV,  pandas, matploblib, seaborn, Pillow, io,  tqdm, NumPy, selenium, Spotipy, time, os, requests, AutoTokenizer, google.generativeai, SentenceTransformer and scikit-learn were used.
+In this project, the libraries OpenCV,  pandas, matploblib, seaborn, Pillow, io,  tqdm, NumPy, selenium, Spotipy, os, AutoTokenizer, google.generativeai, SentenceTransformer and scikit-learn were used.
 In the parts where data is generated, the additional libraries selenium, time, requests, and beautifulsoup4 were used.
 
 ### 3.2.Dataset
