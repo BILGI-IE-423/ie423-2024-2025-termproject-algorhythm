@@ -301,7 +301,7 @@ My life's one endless weekend, fueled by late nights and empty glasses, but the 
 This song is written in Swedish and is woven with local cultural elements, metaphors from everyday life, and a slightly melancholic narrative. The title translates to “Monday’s Child,” and throughout the song, this concept is blended with reflections on the flow of life and personal freedom.
 For us, summarizing the meaning of such a song in a different language is often challenging. However, we observed that the model handled this complexity quite successfully.
 “My life's one endless weekend, fueled by late nights and empty glasses, but the party's almost over.”
-The model captures the tone and mood of the song, conveying the individual’s free-spirited, unplanned, ifestyle in a simple yet powerful way.
+The model captures the tone and mood of the song, conveying the individual’s free-spirited, unplanned lifestyle in a simple yet powerful way.
 The emotional atmosphere of the original is preserved in the summary—evoking a sense of recklessness, youth, and freedom.
 It also stands out as a technically strong example, demonstrating how the model, while working solely with English words, was still able to accurately extract the meaning conveyed in Swedish.
 
