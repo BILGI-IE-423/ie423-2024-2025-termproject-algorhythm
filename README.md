@@ -61,9 +61,10 @@ The summarization prompt used was as follows:
 
 Below are sample tracks included to demonstrate the model’s summarization performance on complex or multilingual lyrics.
 
-# Example-1
+Example-1
 
-# Aerials- System of a Down
+Aerials- System of a Down
+
 Life is a waterfall
 We're one in the river and one again after the fall
 Swimming through the void, we hear the word
@@ -91,7 +92,7 @@ When you lose small mind, you free your life
 Aerials, so up high
 When you free your eyes, eternal prize
 
-# Summary
+Summary
 Life's a continuous cycle, a fall and a rise, a journey of losing and finding ourselves.  We crave freedom and the thrill of playing, yet fear losing control. Letting go of limitations unlocks a greater, eternal reward.
 
 “Aerials” is a complex and metaphorical song, rich in symbolic language. The model successfully extracts its core theme—how perception and cyclical change define human experience—and expresses it in a concise and meaningful way.
@@ -101,9 +102,9 @@ The phrase “fall and rise” captures the cyclical nature of life.
 Instead of using a third-person narration, the model directly conveys the song’s core theme.
 Moreover, while preserving the abstract tone of the original lyrics, the summary sentence remains fluent, coherent, and rich in meaning.
 
-# Example-2
+Example-2
 
-# Måndagsbarn – Veronica Maggio
+Måndagsbarn – Veronica Maggio
 Jag blev ett måndagsbarn
 Hela livet blev en helg
 Mmm, nu ere måndag snart
@@ -183,7 +184,7 @@ The weekend has to end... (oh!)
 (You’re a Monday’s child
 You’re a Monday’s child)
 
-# Summary
+Summary
 My life's one endless weekend, fueled by late nights and empty glasses, but the party's almost over.  People are tired of my reckless behavior; I'm lost, and this sick situation has to end.  I'm a Friday child, always searching for the next party, but even that can't last forever.
 
 This song is written in Swedish and is woven with local cultural elements, metaphors from everyday life, and a slightly melancholic narrative. The title translates to “Monday’s Child,” and throughout the song, this concept is blended with reflections on the flow of life and personal freedom.
