@@ -333,9 +333,13 @@ At this point, the dataset was ready for embedding. Using the “all-MiniLM-L6-v
 Album Cover Features
 
 In this project, features that convey the emotional characteristics of images were examined. The selected features include average color, dominant color, edge complexity, face presence, average HSV values, and colorfulness. 
+
 To calculate the average color, each image was read using OpenCV, and the mean value of all pixel intensities was computed separately for each RGB channel. 
+
 The edge complexity metric reflects how visually complex an image is. After converting the image to grayscale, the Canny edge detection algorithm was applied to detect edges. The ratio of edge pixels to total pixels was then calculated to quantify the level of visual detail (Roboflow, 2022). 
+
 The has face feature identifies whether the image contains a human face. This was determined using the Haar Cascade face detection algorithm available in OpenCV. If a face was detected, the feature was recorded as 1; otherwise, 0. 
+
 Another important metric is the HSV (Hue, Saturation, Value) representation, which describes color more similarly to human perception than the RGB color space.
 
 Hue (H) indicates the color tone and ranges from 0 to 179 in OpenCV.
