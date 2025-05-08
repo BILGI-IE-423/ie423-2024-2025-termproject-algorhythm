@@ -11,7 +11,7 @@
 This project aims to predict the emotional states conveyed by songs using their multidimensional features. In addition to the Spotify dataset, song lyrics, album cover images, and data collected from other music platforms are used. The main goal of the project is to classify the emotion a song conveys by holistically analyzing audio-based (valence and energy), visual (album cover), and textual (lyrics) features using machine learning techniques. The project is based on the two-dimensional energy-valence matrix, commonly used in psychology models such as Thayer's Mood Model, to define emotions. Songs are categorized into emotional clusters such as joyful, sad, energetic, and anxious. The core focuses of the project are:
 Performing textual analysis (NLP) on song lyrics to identify emotional expressions and integrate them into the model,
 
-![](images/Thayer%20Model.jpeg)
+![](Thayer%20Model.jpeg)
 
 Using visual processing techniques to analyze album cover features and utilize them in emotion prediction,
 
@@ -52,7 +52,7 @@ Mood Label Assignment Using a 3x3 Grid
 
 According to Lata (2024), Spotify songs were classified based on emotions using Robert Thayer’s traditional two-dimensional mood model, which is built on the dimensions of energy and valence. While studies typically employ a 2x2 (four-cluster) structure, our project divided the valence (emotional positivity) and energy axes into three equal intervals, resulting in a 3x3 grid that enables a more detailed representation of emotions. As a result, nine distinct mood clusters were obtained. This approach preserves the simplicity and clarity of Thayer’s model while allowing for a more nuanced emotional mapping. Cluster labeling was inspired by the core mood states defined in Thayer’s model, such as Exuberance, Anxiety, Contentment, and Depression. This method provides a strong foundation for the development of mood prediction systems and mood-based music recommendation engines. Then, a function named assign_mood was created to assign these moods to the dataset.  
 
-![](images/Thayer%20Model.jpeg)
+![](Thayer%20Model.jpeg)
  
 One-Hot Encoding  
 
