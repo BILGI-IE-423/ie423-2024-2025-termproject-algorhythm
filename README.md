@@ -52,11 +52,17 @@ Before proceeding with embedding, we decided to summarize the lyrics because the
 The summarization prompt used was as follows:
 
 “Summarize the following song lyrics in 2-3 sentences. “
+
 “Use the perspective and voice of the lyrics themselves (do not refer to the song as “the song says” or “the singer feels”). “
+
 “Capture the main theme, message, or emotional tone directly from the lyrics. “
+
 “Do not include any outside interpretation or third-person phrasing. “
+
 “If the original lyrics are in a non-English language, still summarize them **only in English**. “
+
 “Use **only English words** in the summary — do not include any non-English words, names, or expressions.”
+
 “Keep the tone natural and expressive, aligned with the original emotion.”
 
 Below are sample tracks included to demonstrate the model’s summarization performance on complex or multilingual lyrics.
@@ -80,23 +86,41 @@ Always wanna go, but you never wanna stay
 And we are the ones that wanna choose
 
 Always wanna play, but you never wanna lose
+
 Aerials in the sky
+
 When you lose small mind, you free your life
+
 Life is a waterfall
+
 We drink from the river, then we turn around and put up our walls
+
 Swimming through the void, we hear the word
+
 We lose ourselves, but we find it all
+
 'Cause we are the ones that wanna play
+
 Always wanna go, but you never wanna stay
+
 And we are the ones that wanna choose
+
 Always wanna play, but you never wanna lose, oh
+
 Aerials in the sky
+
 When you lose small mind, you free your life
+
 Aerials, so up high
+
 When you free your eyes, eternal prize
+
 Aerials in the sky
+
 When you lose small mind, you free your life
+
 Aerials, so up high
+
 When you free your eyes, eternal prize
 
 Summary
@@ -113,83 +137,158 @@ Moreover, while preserving the abstract tone of the original lyrics, the summary
 Example-2
 
 Måndagsbarn – Veronica Maggio
+
 Jag blev ett måndagsbarn
+
 Hela livet blev en helg
+
 Mmm, nu ere måndag snart
+
 O jag lever för ikväll, 
+
 Sena nätter, tomma glas
+
 Femhundra skjuter upp problemet för ett tag (för stunden)
+
 Men jag tror att alla snart... har fått nog av mig
+
 Vad har du gjort av dig, för dig, med dig själv
+
 Situationen e så sjuk
+
 Vad har du gjort, för dig ere alltid helg
+
 O helgen måste ta slut
+
 De e fullt en lörda klockan 5
+
 Jag längtar alltid härifrån men aldrig hem
+
 Skulle, *borde* ta det sen, vad ska det bli av mig,
+
 Det finns dagar som idag av hopplösa mornar
+
 De e då jag vaknar som ett vrak
+
 Å jag märker alla har - har fått nog av mig
+
 Vad har du gjort av dig, för dig, med dig själv
+
 Situationen e så sjuk
+
 Vad har du gjort, för dig ere alltid helg
+
 O helgen måste ta slut
+
 Jag blev ett måndagsbarn
+
 Hela livet blev en helg
+
 De e månda snart
+
 Men jag lever för ikväll
+
 Föddes en lörda, mamma kalla mig för discotjej
+
 Så på en lörda, ja då vet du var du hittar mig
+
 Föddes en lörda, alla kallar mig för discotjej
+
 Mamma frågar sig...
+
 Vad har du gjort av dig, för dig, med dig själv
+
 Situationen e så sjuk
+
 Vad har du gjort, för dig ere alltid helg
+
 O helgen måste ta slut
+
 Vad har du gjort av dig, för dig, med dig själv
+
 Situationen e så sjuk
+
 Vad har du gjort Ve-ronica med dig själv
+
 Helgen måste ta slut... 
+
 (Du e ett måndagsbarn
+
 Du e ett måndagsbarn)
+
 
 English Version
 
 I became a Monday’s child
+
 My whole life turned into a weekend
+
 Mmm, now it’s almost Monday
+
 But I live for tonight 
+
 Late nights, empty glasses
+
 500 kronor postpones the problem for a while (for the moment)
+
 But I think soon...
+
 Everyone will have had enough of me
+
 What have you done of yourself, for yourself, to yourself?
+
 The situation is so messed up
+
 For you, it’s always the weekend
+
 But the weekend has to end
+
 It’s packed on a Saturday at five
+
 I always long to get away, but never home
+
 I should, ought to deal with it later—what’s going to become of me?
+
 There are days like today with hopeless mornings
+
 That’s when I wake up a wreck
+
 And I realize everyone has… had enough of me
+
 What have you done of yourself, for yourself, to yourself?
+
 The situation is so messed up
+
 For you, it’s always the weekend
+
 But the weekend has to end
+
 I became a Monday’s child
+
 My whole life turned into a weekend
+
 It’s almost Monday
+
 But I live for tonight
+
 Born on a Saturday, mom called me a disco girl
+
 So on a Saturday, you know where to find me
+
 Born on a Saturday, everyone calls me the disco girl
+
 And mom’s wondering…
+
 What have you done of yourself, for yourself, to yourself?
+
 The situation is so messed up
+
 What have you done, Ve-ronica, to yourself?
+
 The weekend has to end... (oh!)
+
 (You’re a Monday’s child
+
 You’re a Monday’s child)
 
 Summary
