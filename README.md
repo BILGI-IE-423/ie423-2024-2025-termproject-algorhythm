@@ -58,3 +58,43 @@ One-Hot Encoding
 
 The categorical feature playlist_subgenre was transformed using one-hot encoding to create binary columns for each genre, enabling it to be used in machine learning models.  
 
+### 3.4 Data Analysis  
+
+![](Images/Valence%20Value%20Distribution.png)    
+
+This histogram illustrates the distribution of valence values among Spotify tracks. Valence measures the degree to which a track evokes positive emotions, with values ranging from 0 (very sad or negative) to 1 (very happy or positive). The valence values were divided into 30 equal-width bins after removing missing data. Each bar in the histogram indicates the number of tracks that fall within a given valence interval, offering a clear view of the emotional spread of the dataset.
+
+![](Images/Energy%20Value%20Distribution.png)  
+
+This histogram displays the distribution of energy levels among Spotify tracks. The energy attribute represents a track’s overall intensity and tempo, with scores normalized between 0 (very low energy) and 1 (very high energy). The data were grouped into 30 bins. Each bar in the histogram represents the frequency of songs within a specific energy range, providing insights into how energetic the dataset is overall.  
+
+![](Images/Mood%20Distribution.png)  
+
+This bar chart illustrates the distribution of Spotify tracks according to their assigned mood labels, derived from Thayer’s two-dimensional emotion model. The classification incorporates the dimensions of energy and valence to assign each track a specific emotional category. The observed distribution indicates that the dataset predominantly comprises songs characterized by high energy levels and emotionally positive or determined moods. This visualization facilitates a broader understanding of the emotional landscape of the dataset and highlights the prevalence of certain affective states in contemporary music content.  
+
+
+![](Images/KMeans.png)  
+
+This visualization is based on a 3x3 mood map created using the valence and energy values of songs. The main goal is to determine which mood each song reflects based on these two features and to present the emotional distribution of music in a visual format. Songs are visualized on a scatter plot, colored according to their assigned mood categories. Dashed lines at the 0.33 and 0.66 threshold values indicate the boundaries between mood regions. This study aims to understand which emotions music tracks correspond to.  
+
+![](Images/Correlation%20Matrix.png)  
+
+To better understand the relationships between key audio features in the dataset, a correlation matrix was computed and visualized using a heatmap. A Pearson correlation was calculated between continuous numerical features such as valence, energy, danceability, acousticness, instrumentalness, loudness and tempo. The correlation matrix helped identify which features moved together and which were potentially redundant or inversely related. The resulting matrix was visualized as a Seaborn heatmap, where strong positive correlations are shown in darker shades and strong negative correlations appear as lighter or blue-toned values. Also, annotations were added to each cell to indicate exact correlation coefficients.  
+
+![](Images/Mean%20Valence%20and%20Energy%20by%20Genre.png)  
+
+This bar chart illustrates the average valence and energy scores for different music genres. Each genre is represented by two bars: one for mean valence and one for mean energy.  
+
+![](Images/Song%20Distribution%20by%20Energy%20and%20Valence.png)  
+
+This bar chart presents the distribution of songs across Low, Medium, and High categories for both energy and valence.  
+
+![](Images/Energy%20and%20Valence%20Distribution%20by%20Subgenre.png)  
+
+This boxplot visualizes the distribution of the energy and valence variables across different musical subgenres of Spotify tracks. The purpose of this visualization is to explore the variation in emotional and energetic attributes based on musical subcategory, allowing for comparative insights into how energy and mood positivity levels differ across subgenres.
+
+
+
+
+
+
