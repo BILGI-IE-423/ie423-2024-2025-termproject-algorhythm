@@ -1,10 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/7dVfiuFW)
 # Mood Prediction of Songs
 
-122203088 Belinay Keleş
-121203034 Sude Şintürk
-121203079 Yeliz Avcı
-120203034 Sevgi Gündoğdu
+122203088 Belinay Keleş  
+121203034 Sude Şintürk  
+121203079 Yeliz Avcı  
+120203034 Sevgi Gündoğdu  
 
 ## 1.Scope of the Project
 
