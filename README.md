@@ -306,6 +306,7 @@ The emotional atmosphere of the original is preserved in the summary—evoking a
 It also stands out as a technically strong example, demonstrating how the model, while working solely with English words, was still able to accurately extract the meaning conveyed in Swedish.
 
 The aim during summarization was to remain true to the song’s original voice, capturing its message or emotion without adding external interpretation or commentary.
+
 The final version of the dataset was saved in the file titled “lyrics_summarized.csv”.
 
 
