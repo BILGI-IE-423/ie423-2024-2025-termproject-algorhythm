@@ -9,16 +9,13 @@
 ## 1.Scope of the Project
 
 This project aims to predict the emotional states conveyed by songs using their multidimensional features. In addition to the Spotify dataset, song lyrics, album cover images, and data collected from other music platforms are used. The main goal of the project is to classify the emotion a song conveys by holistically analyzing audio-based (valence and energy), visual (album cover), and textual (lyrics) features using machine learning techniques. The project is based on the two-dimensional energy-valence matrix, commonly used in psychology models such as Thayer's Mood Model, to define emotions. Songs are categorized into emotional clusters such as joyful, sad, energetic, and anxious. The core focuses of the project are:
-Performing textual analysis (NLP) on song lyrics to identify emotional expressions and integrate them into the model,
+-Performing textual analysis (NLP) on song lyrics to identify emotional expressions and integrate them into the model,
+-Using visual processing techniques to analyze album cover features and utilize them in emotion prediction,
+-Determining the emotional positioning of songs on the mood map using audio-based features (valence and energy) retrieved from Spotify.
+Ultimately, this project aims to build an innovative, machine learning-enhanced emotion prediction system based on a multimodal approach and use it to generate emotion-based playlists for users.  
 
 ![](Images/Thayer%20Model.jpeg)
-
-Using visual processing techniques to analyze album cover features and utilize them in emotion prediction,
-
-
-Determining the emotional positioning of songs on the mood map using audio-based features (valence and energy) retrieved from Spotify.
-Ultimately, this project aims to build an innovative, machine learning-enhanced emotion prediction system based on a multimodal approach and use it to generate emotion-based playlists for users.
-
+ 
 ## 2.Research Questions
 
 How accurately can a song's emotion be predicted based on its energy and valence values, and how reliably can playlists be generated based on these predictions?
