@@ -93,6 +93,7 @@ Aerials, so up high
 When you free your eyes, eternal prize
 
 Summary
+
 Life's a continuous cycle, a fall and a rise, a journey of losing and finding ourselves.  We crave freedom and the thrill of playing, yet fear losing control. Letting go of limitations unlocks a greater, eternal reward.
 
 “Aerials” is a complex and metaphorical song, rich in symbolic language. The model successfully extracts its core theme—how perception and cyclical change define human experience—and expresses it in a concise and meaningful way.
@@ -185,6 +186,7 @@ The weekend has to end... (oh!)
 You’re a Monday’s child)
 
 Summary
+
 My life's one endless weekend, fueled by late nights and empty glasses, but the party's almost over.  People are tired of my reckless behavior; I'm lost, and this sick situation has to end.  I'm a Friday child, always searching for the next party, but even that can't last forever.
 
 This song is written in Swedish and is woven with local cultural elements, metaphors from everyday life, and a slightly melancholic narrative. The title translates to “Monday’s Child,” and throughout the song, this concept is blended with reflections on the flow of life and personal freedom.
