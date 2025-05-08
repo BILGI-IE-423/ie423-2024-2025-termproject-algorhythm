@@ -147,7 +147,7 @@ Mmm, nu ere måndag snart
 
 O jag lever för ikväll, 
 
-Sena nätter, tomma glas....
+Sena nätter, tomma glas....(continue)
 
 
 -English Version-
