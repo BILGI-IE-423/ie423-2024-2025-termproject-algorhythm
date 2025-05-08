@@ -44,11 +44,14 @@ In the parts where data is generated, the additional libraries selenium, time, r
 
 ### 3.3.Process
 Data Loading and Initial Cleaning  
+
 The primary dataset, spotify_songs.csv, was loaded and all rows containing missing values were removed using the dropna() function. The describe() function was then used to examine the feature distributions and value ranges. It was observed that the loudness feature included values outside the expected range of -60 to 0, which were identified as outliers and subsequently removed. Additionally, duplicate entries based on the track_id column were detected and eliminated to ensure data integrity.  
 
 Mood Label Assignment Using a 3x3 Grid  
+
 According to Lata (2024), Spotify songs were classified based on emotions using Robert Thayer’s traditional two-dimensional mood model, which is built on the dimensions of energy and valence. While studies typically employ a 2x2 (four-cluster) structure, our project divided the valence (emotional positivity) and energy axes into three equal intervals, resulting in a 3x3 grid that enables a more detailed representation of emotions. As a result, nine distinct mood clusters were obtained. This approach preserves the simplicity and clarity of Thayer’s model while allowing for a more nuanced emotional mapping. Cluster labeling was inspired by the core mood states defined in Thayer’s model, such as Exuberance, Anxiety, Contentment, and Depression. This method provides a strong foundation for the development of mood prediction systems and mood-based music recommendation engines. Then, a function named assign_mood was created to assign these moods to the dataset.  
  
 One-Hot Encoding  
+
 The categorical feature playlist_subgenre was transformed using one-hot encoding to create binary columns for each genre, enabling it to be used in machine learning models.  
 
