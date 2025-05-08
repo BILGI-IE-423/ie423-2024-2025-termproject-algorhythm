@@ -52,7 +52,7 @@ Mood Label Assignment Using a 3x3 Grid
 
 According to Lata (2024), Spotify songs were classified based on emotions using Robert Thayer’s traditional two-dimensional mood model, which is built on the dimensions of energy and valence. While studies typically employ a 2x2 (four-cluster) structure, our project divided the valence (emotional positivity) and energy axes into three equal intervals, resulting in a 3x3 grid that enables a more detailed representation of emotions. As a result, nine distinct mood clusters were obtained. This approach preserves the simplicity and clarity of Thayer’s model while allowing for a more nuanced emotional mapping. Cluster labeling was inspired by the core mood states defined in Thayer’s model, such as Exuberance, Anxiety, Contentment, and Depression. This method provides a strong foundation for the development of mood prediction systems and mood-based music recommendation engines. Then, a function named assign_mood was created to assign these moods to the dataset.  
 
-![](Thayer%20Model.jpeg)
+![](3x3%20Mood%Table.jpeg)
  
 One-Hot Encoding  
 
