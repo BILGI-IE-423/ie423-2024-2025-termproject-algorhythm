@@ -66,12 +66,19 @@ Example-1
 Aerials- System of a Down
 
 Life is a waterfall
+
 We're one in the river and one again after the fall
+
 Swimming through the void, we hear the word
+
 We lose ourselves, but we find it all
+
 'Cause we are the ones that wanna play
+
 Always wanna go, but you never wanna stay
+
 And we are the ones that wanna choose
+
 Always wanna play, but you never wanna lose
 Aerials in the sky
 When you lose small mind, you free your life
