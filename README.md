@@ -220,7 +220,7 @@ Du e ett måndagsbarn)
 
 
 
-English Version
+-English Version-
 
 I became a Monday’s child
 
