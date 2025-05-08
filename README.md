@@ -129,7 +129,7 @@ Summary
 Life's a continuous cycle, a fall and a rise, a journey of losing and finding ourselves.  We crave freedom and the thrill of playing, yet fear losing control. Letting go of limitations unlocks a greater, eternal reward.
 
 “Aerials” is a complex and metaphorical song, rich in symbolic language. The model successfully extracts its core theme—how perception and cyclical change define human experience—and expresses it in a concise and meaningful way.
-“Life’s a continuous cycle, a fall and a rise, where perception shapes our freedom.”
+“Life's a continuous cycle, a fall and a rise, a journey of losing and finding ourselves.”
 This summary reflects the main philosophical theme of the song in a brief and meaningful way:
 The phrase “fall and rise” captures the cyclical nature of life.
 Instead of using a third-person narration, the model directly conveys the song’s core theme.
