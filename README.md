@@ -326,6 +326,7 @@ One-Hot Encoding
 The categorical feature playlist_subgenre was transformed using one-hot encoding to create binary columns for each genre, enabling it to be used in machine learning models.  
 
 Embedding
+
 After the summarization process, a new column called lyrics_summary was created and the summaries were saved. Token counts for the summaries were then calculated and stored in the sum_token_count column. A statistical analysis using describe() revealed a median token count of 60.
 At this point, the dataset was ready for embedding. Using the “all-MiniLM-L6-v2” model and the sentence-transformers library, a total of 19,457 lyric summaries were successfully embedded, each represented as a vector of length 384.The resulting embeddings were saved in a folder named “lyrics_embeddings.csv”.
 
