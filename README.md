@@ -13,8 +13,7 @@ This project aims to measure whether it can accurately predict the emotional sta
 -Performing textual analysis (NLP) on lyrics to identify emotional expressions and integrate them into the model,  
 -Using visual processing techniques to analyze album cover features and use them for emotion prediction,  
 -Determining the emotional position of songs on the mood map using audio-based features taken from Spotify.  
-
-The ultimate goal of this project is to create an innovative machine learning-powered emotion prediction system based on a multimodal approach.  
+  
 
 ![](Images/Thayer%20Model.jpeg)
  
