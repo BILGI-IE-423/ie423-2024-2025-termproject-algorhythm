@@ -8,26 +8,25 @@
 
 ## 1.Scope of the Project
 
-This project aims to predict the emotional states conveyed by songs using their multidimensional features. In addition to spotify dataset, album cover images and song lyrics were used. The main goal of the project is to classify the emotion a song conveys by holistically analyzing audio-based (valence and energy), visual (album cover), and textual (lyrics) features using machine learning techniques. The project is based on the two-dimensional energy-valence matrix, commonly used in psychology models such as Thayer's Mood Model, to define emotions. Songs are categorized into emotional clusters such as joyful, sad, energetic, and anxious. The core focuses of the project are:  
+This project aims to measure whether it can accurately predict the emotional states conveyed by songs using multidimensional features. In addition to the Spotify dataset, album cover images and lyrics were used. The main goal of the project is to measure whether we can predict the emotion conveyed by a song by holistically analyzing audio-based (valence and energy), visual (album cover) and textual (lyrics) features using machine learning techniques. The project is based on the two-dimensional energy-valence matrix, which is widely used in psychology models such as Thayer's Mood Model to describe emotions. Songs are divided into emotional clusters such as energetic, sad, calm, stressed. The main focuses of the project are:  
 
--Performing textual analysis (NLP) on song lyrics to identify emotional expressions and integrate them into the model,  
--Using visual processing techniques to analyze album cover features and utilize them in emotion prediction,  
--Determining the emotional positioning of songs on the mood map using audio-based features (valence and energy) retrieved from Spotify.  
+-Performing textual analysis (NLP) on lyrics to identify emotional expressions and integrate them into the model,  
+-Using visual processing techniques to analyze album cover features and use them for emotion prediction,  
+-Determining the emotional position of songs on the mood map using audio-based features taken from Spotify.  
 
-Ultimately, this project aims to build an innovative, machine learning-enhanced emotion prediction system based on a multimodal approach and use it to generate emotion-based playlists for users.  
+The ultimate goal of this project is to create an innovative machine learning-powered emotion prediction system based on a multimodal approach.  
 
 ![](Images/Thayer%20Model.jpeg)
  
 ## 2.Research Questions
 
-How accurately can a song's emotion be predicted based on its energy and valence values, and how reliably can playlists be generated based on these predictions?
+How accurately can a song's emotion be predicted based on its audio features, visual features, lyrics and genre?
 
 
-To what extent do the visual features of album covers (e.g., color, contrast, visual density) and song lyrics align with the predicted emotional state?
+To what extent do the visual features of album covers (e.g., color, contrast, visual density), song lyrics, audio features and genres align with the predicted emotional state?
 
 
 Among various machine learning models (e.g., XGBoost, Random Forest, SVM), which algorithm performs best in predicting a song’s emotion?
-
 
 
 
@@ -36,218 +35,33 @@ Among various machine learning models (e.g., XGBoost, Random Forest, SVM), which
 ### 3.1.Libraries
 In this project, the libraries OpenCV,  pandas, matploblib, seaborn, Pillow, io,  tqdm, NumPy, selenium, Spotipy, os, AutoTokenizer, google.generativeai, SentenceTransformer and scikit-learn were used.
 In the parts where data is generated, the additional libraries selenium, time, requests, and beautifulsoup4 were used.
+Additionally, the libraries xgboost, catboost, and scipy were used for model training and hyperparameter optimization.The components ConfusionMatrixDisplay, StratifiedKFold, and GridSearchCV from the scikit-learn library were also utilized in this project.
 
 ### 3.2.Dataset
-This dataset contains detailed audio features and metadata for 30,000 songs collected via the Spotify API. Each track includes attributes such as danceability, energy, loudness, speechiness, acousticness, instrumentalness, valence, tempo, and popularity. In addition to these, the dataset also includes identity-related features such as the playlists the songs appear in.
+To investigate the emotional prediction capability of energy and valence values, and assess the alignment of visual and lyrical features with emotional states, we enriched the original 30,000-track Spotify dataset with multi-modal content.
 
-To obtain the album covers of the songs in the original dataset, a Spotify Developer account was first created and Spotify API credentials were obtained. Then, using Python, the spotify library was imported to automate the data retrieval process. Since downloading album covers directly would be time-consuming, album URLs were first collected using the track_album_id field. A total of 32,816 URLs were retrieved, and 22,533 unique album covers were automatically downloaded using the os, requests, and tqdm libraries. These album covers were stored in the album_covers directory.
+-Audio Features: The dataset includes core attributes like danceability, energy, valence, tempo, and others, directly retrieved via 30,000-track Spotify dataset.
 
-Since song lyrics are expected to be an important feature in conveying emotional content, this information was incorporated into the dataset. To retrieve the lyrics, an automation script was developed in Python using the Selenium library. The web scraping process was applied on the website genius.com . In the first stage of the script, the track_name and track_artist values from the dataset were programmatically inserted into the site's search bar. Then, the link of the top result (first matching song) was extracted from the search results. After collecting all relevant URLs, a second script was used to navigate to each song page and extract the corresponding lyrics. 
 
-The lyrics and URLs were parsed by taking into account the HTML structure of each Genius song page. Additionally, tracks for which a dedicated lyrics page had not yet been created were automatically skipped during scraping.
+-Album Covers: Using track_album_id, 22,533 unique album images were downloaded and later processed for visual features (e.g., average color, HSV, edge complexity, face presence, colorfulness, dominant color). The colorfulness metric, adapted from Hasler and Süsstrunk’s method, quantifies the perceptual diversity and intensity of colors using red-green and yellow-blue channel statistics. The edge complexity metric, inspired by Roboflow (2022), was computed by converting images to grayscale, applying the Canny edge detection algorithm, and calculating the ratio of edge pixels to total pixels to quantify visual detail.
 
-In the songs_with_lyrics.csv file, missing (NaN) and duplicate song entries were removed. The number of tokens in each lyric was calculated using the AutoTokenizer library and saved in a new column named lyrics_token_count. An analysis with the describe() function showed that the median token count was 570.
 
-Before proceeding with embedding, we decided to summarize the lyrics because the selected model, DistilBERT-based “all-MiniLM-L6-v2”, supports a maximum of 512 tokens. For this, a Google Cloud account was created, a Gemini API key was obtained, the google.generativeai library was installed, and the “gemini-1.5-flash” model was used.
+-Lyrics: Lyrics were scraped from Genius.com using Selenium, matched by track title and artist. Tracks without lyrics were excluded. Token counts were calculated, and long lyrics were summarized using Gemini-1.5-Flash to fit the input size limits of the embedding model all-MiniLM-L6-v2.
 
-The summarization prompt used was as follows:
 
-“Summarize the following song lyrics in 2-3 sentences. “
+-Lyrics Embeddings: Summarized lyrics were embedded into 384-dimensional vectors to represent emotional and semantic content for mood prediction and alignment analysis.
 
-“Use the perspective and voice of the lyrics themselves (do not refer to the song as “the song says” or “the singer feels”). “
-
-“Capture the main theme, message, or emotional tone directly from the lyrics. “
-
-“Do not include any outside interpretation or third-person phrasing. “
-
-“If the original lyrics are in a non-English language, still summarize them **only in English**. “
-
-“Use **only English words** in the summary — do not include any non-English words, names, or expressions.”
-
-“Keep the tone natural and expressive, aligned with the original emotion.”
-
-Below are sample tracks included to demonstrate the model’s summarization performance on complex or multilingual lyrics.
-
-Example-1
-
-Aerials- System of a Down
-
-Life is a waterfall
-
-We're one in the river and one again after the fall
-
-Swimming through the void, we hear the word
-
-We lose ourselves, but we find it all
-
-'Cause we are the ones that wanna play
-
-Always wanna go, but you never wanna stay
-
-And we are the ones that wanna choose
-
-Always wanna play, but you never wanna lose
-
-Aerials in the sky
-
-When you lose small mind, you free your life
-
-Life is a waterfall
-
-We drink from the river, then we turn around and put up our walls
-
-Swimming through the void, we hear the word
-
-We lose ourselves, but we find it all
-
-'Cause we are the ones that wanna play
-
-Always wanna go, but you never wanna stay
-
-And we are the ones that wanna choose
-
-Always wanna play, but you never wanna lose, oh
-
-Aerials in the sky
-
-When you lose small mind, you free your life
-
-Aerials, so up high
-
-When you free your eyes, eternal prize
-
-Aerials in the sky
-
-When you lose small mind, you free your life
-
-Aerials, so up high
-
-When you free your eyes, eternal prize
-
-Summary
-
-Life's a continuous cycle, a fall and a rise, a journey of losing and finding ourselves.  We crave freedom and the thrill of playing, yet fear losing control. Letting go of limitations unlocks a greater, eternal reward.
-
-“Aerials” is a complex and metaphorical song, rich in symbolic language. The model successfully extracts its core theme—how perception and cyclical change define human experience—and expresses it in a concise and meaningful way.
-“Life's a continuous cycle, a fall and a rise, a journey of losing and finding ourselves.”
-This summary reflects the main philosophical theme of the song in a brief and meaningful way:
-The phrase “fall and rise” captures the cyclical nature of life.
-Instead of using a third-person narration, the model directly conveys the song’s core theme.
-Moreover, while preserving the abstract tone of the original lyrics, the summary sentence remains fluent, coherent, and rich in meaning.
-
-Example-2
-
-Måndagsbarn – Veronica Maggio
-
-Jag blev ett måndagsbarn
-
-Hela livet blev en helg
-
-Mmm, nu ere måndag snart
-
-O jag lever för ikväll, 
-
-Sena nätter, tomma glas....(continue)
-
-
--English Version-
-
-I became a Monday’s child
-
-My whole life turned into a weekend
-
-Mmm, now it’s almost Monday
-
-But I live for tonight 
-
-Late nights, empty glasses
-
-500 kronor postpones the problem for a while (for the moment)
-
-But I think soon...
-
-Everyone will have had enough of me
-
-What have you done of yourself, for yourself, to yourself?
-
-The situation is so messed up
-
-For you, it’s always the weekend
-
-But the weekend has to end
-
-It’s packed on a Saturday at five
-
-I always long to get away, but never home
-
-I should, ought to deal with it later—what’s going to become of me?
-
-There are days like today with hopeless mornings
-
-That’s when I wake up a wreck
-
-And I realize everyone has… had enough of me
-
-What have you done of yourself, for yourself, to yourself?
-
-The situation is so messed up
-
-For you, it’s always the weekend
-
-But the weekend has to end
-
-I became a Monday’s child
-
-My whole life turned into a weekend
-
-It’s almost Monday
-
-But I live for tonight
-
-Born on a Saturday, mom called me a disco girl
-
-So on a Saturday, you know where to find me
-
-Born on a Saturday, everyone calls me the disco girl
-
-And mom’s wondering…
-
-What have you done of yourself, for yourself, to yourself?
-
-The situation is so messed up
-
-What have you done, Ve-ronica, to yourself?
-
-The weekend has to end... (oh!)
-
-(You’re a Monday’s child
-
-You’re a Monday’s child)
-
-Summary
-
-My life's one endless weekend, fueled by late nights and empty glasses, but the party's almost over.  People are tired of my reckless behavior; I'm lost, and this sick situation has to end.  I'm a Friday child, always searching for the next party, but even that can't last forever.
-
-This song is written in Swedish and is woven with local cultural elements, metaphors from everyday life, and a slightly melancholic narrative. The title translates to “Monday’s Child,” and throughout the song, this concept is blended with reflections on the flow of life and personal freedom.
-For us, summarizing the meaning of such a song in a different language is often challenging. However, we observed that the model handled this complexity quite successfully.
-“My life's one endless weekend, fueled by late nights and empty glasses, but the party's almost over.”
-The model captures the tone and mood of the song, conveying the individual’s free-spirited, unplanned lifestyle in a simple yet powerful way.
-The emotional atmosphere of the original is preserved in the summary—evoking a sense of recklessness, youth, and freedom.
-It also stands out as a technically strong example, demonstrating how the model, while working solely with English words, was still able to accurately extract the meaning conveyed in Swedish.
-
-The aim during summarization was to remain true to the song’s original voice, capturing its message or emotion without adding external interpretation or commentary.
-
-The final version of the dataset was saved in the file titled “lyrics_summarized.csv”.
 
 
 ### 3.3.Process
 Data Loading and Initial Cleaning  
 
-The primary dataset, spotify_songs.csv, was loaded and all rows containing missing values were removed using the dropna() function. The describe() function was then used to examine the feature distributions and value ranges. It was observed that the loudness feature included values outside the expected range of -60 to 0, which were identified as outliers and subsequently removed. Additionally, duplicate entries based on the track_id column were detected and eliminated to ensure data integrity.  
+The data processing pipeline consisted of five key stages: cleaning, labeling, transformation, feature extraction, and merging.
+Data Cleaning: The initial dataset (spotify_songs.csv) was loaded and cleaned by removing missing values, outliers (e.g., loudness values outside -60 to 0 dB), and duplicate track entries to ensure data quality.
 
-Mood Label Assignment Using a 3x3 Grid  
 
-According to Lata (2024), Spotify songs were classified based on emotions using Robert Thayer’s traditional two-dimensional mood model, which is built on the dimensions of energy and valence. While studies typically employ a 2x2 (four-cluster) structure, our project divided the valence (emotional positivity) and energy axes into three equal intervals, resulting in a 3x3 grid that enables a more detailed representation of emotions. As a result, nine distinct mood clusters were obtained. This approach preserves the simplicity and clarity of Thayer’s model while allowing for a more nuanced emotional mapping. Cluster labeling was inspired by the core mood states defined in Thayer’s model, such as Exuberance, Anxiety, Contentment, and Depression. This method provides a strong foundation for the development of mood prediction systems and mood-based music recommendation engines. Then, a function named assign_mood was created to assign these moods to the dataset.  
+Mood Label Assignment: Based on Robert Thayer’s two-dimensional mood model, songs were categorized into four mood clusters. Following the methodology of Lata (2024), both axes were divided into two intervals, resulting in a 2x2 grid of emotional states. This produced four distinct mood labels such as Energetic, Stressed, Sad, and Calm, representing core affective combinations. A custom assign_thayer_mood function was implemented to assign each track to one of these categories, forming the foundation for evaluating the relationship between audio features and emotional perception.
+  
 
 ![](Images/3x3%20Mood%20Table.png)
  
