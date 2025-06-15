@@ -28,7 +28,6 @@ To what extent do the visual features of album covers (e.g., color, contrast, vi
 Among various machine learning models (e.g., XGBoost, Random Forest, SVM), which algorithm performs best in predicting a song’s emotion?
 
 
-
 ## 3.Preprocessing Steps
 
 ### 3.1.Libraries
@@ -49,7 +48,6 @@ To investigate the emotional prediction capability of energy and valence values,
 
 
 **Lyrics Embeddings:** Summarized lyrics were embedded into 384-dimensional vectors to represent emotional and semantic content for mood prediction and alignment analysis.
-
 
 
 ### 3.3.Process
@@ -85,9 +83,29 @@ This chart displays the distribution of songs by low and high energy/valence lev
 To evaluate the emotional predictability of music, we employed a multimodal classification pipeline incorporating audio-genre features, visual album attributes, and embedded lyrics summaries. Our modeling strategy focused not only on maximizing classification accuracy, but also on exploring class imbalance, sampling diversity, and late fusion architectures, inspired by recent advances in multimodal learning and ensemble methods (Baltrušaitis et al., 2019; Francesconi et al., 2025).
 
 ### 4.1 Model Evaluation: Audio Features + Genre Only
+
+In this phase of the project, we focused exclusively on audio-based features (such as energy, valence, danceability, tempo, etc.) and playlist_subgenre variables to assess how well emotions can be predicted from sound characteristics alone. The goal was to establish a strong unimodal performance benchmark before proceeding with multimodal learning.
+
+To handle class imbalance—especially to better capture underrepresented emotional states like Calm—we applied various oversampling techniques such as SMOTE, ADASYN, and SMOTEENN, as recommended in Han et al. (2022), who highlighted their effectiveness in multi-class imbalanced datasets. We also experimented with class weight adjustments, feature engineering (e.g., selecting the top 9 most important features and creating new features by combining audio attributes), and hyperparameter optimization via RandomizedSearchCV and GridSearchCV.
+
+Random Forest, XGBoost, and CatBoost classification models were evaluated. Each model underwent extensive experimentation under different configurations, including combinations of sampling strategies, class weights, and parameter tuning. A key goal was not just to maximize overall accuracy, but to specifically improve the macro-average F1-score, which is more sensitive to minority classes. This process was guided by research on imbalanced learning (Han et al., 2022) and ensemble techniques. The table below summarizes the most important experiments and results:
+
 ![](Images/Audio_Features.png)
+
+Through more than 20+ model configurations, we observed that XGBoost with RandomizedSearchCV tuning and class weight adjustment yielded the highest macro-average F1-score (0.59) while maintaining strong accuracy (0.67). CatBoost and Random Forest also showed competitive performance under certain sampling strategies. This process demonstrated the importance of class rebalancing and parameter optimization even in unimodal settings.
+
 ### 4.2 Model Evaluation: Visual Features Only
+
+In this phase of the project, we investigated to what extent emotions can be classified using only visual features (e.g., average color values, brightness, saturation, face presence, edge density). The aim was to establish a strong unimodal, image-based baseline before moving on to multimodal models.
+
+Various oversampling techniques (SMOTE, ADASYN, SMOTEENN) were applied to eliminate class imbalance and improve performance—especially in terms of macro-average F1-score, reflecting the overall ability to capture minority classes (Han et al., 2022). Each method was tested independently under multiple configurations. Additionally, class weight adjustments and hyperparameter optimization were performed via GridSearchCV and RandomizedSearchCV, allowing us to identify optimal model configurations and evaluate whether fine-tuning contributes meaningfully to accuracy and generalizability. Performance was further enhanced through feature selection (top 9 visual features) and feature engineering, such as combining HSV and colorfulness features to enhance emotional representation.
+
+Random Forest, XGBoost, and CatBoost models were repeatedly trained under a wide range of configurations. Each was evaluated in terms of accuracy and macro-average F1-score. Special attention was given to improving underrepresented classes and evaluating the contribution of balancing strategies and parameter tuning.
+
 ![](Images/Visuals.png)
+
+Across 19 different model configurations, significant insights were gained. The highest macro-average F1-score (0.37) was achieved using XGBoost with engineered visual features, emphasizing the power of thoughtful feature design. The highest overall accuracy (0.53) was observed in a baseline Random Forest configuration without any class balancing or tuning, but its macro F1-score was lower (0.34), underscoring the necessity of balancing strategies for holistic model success.
+
 ### 4.3 Model Evaluation: Lyrics Embeddings Only
 
 In this phase of the project, only lyrics embeddings were used to examine the extent to which emotional classification could be achieved through textual features alone. Two main classifiers, Random Forest and XGBoost, were iteratively trained under various configurations to improve performance, particularly in addressing class imbalance and boosting macro-average F1 scores.
