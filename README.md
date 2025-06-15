@@ -53,7 +53,8 @@ To investigate the emotional prediction capability of energy and valence values,
 
 
 ### 3.3.Process
-**Data Loading and Initial Cleaning:** The data processing pipeline consisted of five key stages: cleaning, labeling, transformation, feature extraction, and merging.
+
+The data processing pipeline consisted of five key stages: cleaning, labeling, transformation, feature extraction, and merging.
 
 **Data Cleaning:** The initial dataset (spotify_songs.csv) was loaded and cleaned by removing missing values, outliers (e.g., loudness values outside -60 to 0 dB), and duplicate track entries to ensure data quality.
 
