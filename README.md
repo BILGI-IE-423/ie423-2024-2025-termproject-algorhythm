@@ -72,7 +72,7 @@ To investigate the emotional prediction capability of energy and valence values,
 
 ### 3.4 Data Analysis
 
-![](Images/Correlation%Matrix.png)
+![](Images/correlation_matrix.png)
 This correlation matrix illustrates the relationships between track features. A strong positive correlation is observed between energy and loudness (0.68), indicating that higher energy levels are generally associated with higher loudness.
 
 ![](Images/song_distribution_energy_valence.png)
