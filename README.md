@@ -136,7 +136,7 @@ Based on the evaluation results, the best-performing meta-model was XGBoost with
 
 This fusion strategy successfully combined the complementary strengths of auditory, visual, and textual modalities while maintaining modularity and interpretability. The ensemble not only improved robustness and generalizability in emotion classification but also helped highlight which input modalities contributed most meaningfully to the final prediction.
 
-### 5. Model Evaluation
+### 5. Results and Discussion
 
 As seen in the classification report, the model performed particularly well in recognizing Energetic and Stressed classes, achieving F1-scores of 0.72 and 0.64, respectively. The Calm class, being the most underrepresented in the dataset, was more difficult to classify, yet the model still achieved a reasonable F1-score of 0.36, significantly outperforming baseline configurations.
 
@@ -147,6 +147,28 @@ The confusion matrix further illustrates this distribution: while Energetic was 
 ![](Images/late_fusion_confusion_matrix.jpeg)
 
 These results confirm the effectiveness of combining class weighting and hyperparameter optimization in a late fusion setup and highlight the model's ability to generalize well across both dominant and minority emotional categories.
+
+In addition to the best-performing XGBoost fusion model, several other classifiers were evaluated as meta-models to comprehensively assess the effectiveness of late fusion strategies. These included Logistic Regression (with feature scaling and GridSearchCV tuning), CatBoost (with RandomizedSearchCV tuning), and Random Forest (with class weight adjustments and hyperparameter optimization).
+
+The Logistic Regression model achieved a relatively high overall accuracy of 0.65, and a weighted F1-score of 0.64. However, it struggled significantly with the minority class Calm, yielding a very low recall (0.02) and an F1-score of 0.04, as seen in the confusion matrix. While its precision for Calm was technically perfect (1.00), the model failed to detect most actual Calm cases, indicating poor generalization on imbalanced targets.
+
+![](Images/logreg_classification_report.jpeg)
+
+![](Images/logreg_confusion_matrix.jpeg)
+
+The CatBoost meta-classifier showed more balanced performance across emotion categories, achieving an accuracy of 0.65, macro F1-score of 0.51, and relatively stronger results on minority classes compared to Logistic Regression. It correctly predicted more Calm samples (F1-score: 0.12) and demonstrated consistent strength on Energetic and Stressed emotions (F1-scores: 0.71 and 0.64 respectively).
+
+![](Images/catboost_classification_report.jpeg)
+
+![](Images/catboost_confusion_matrix.jpeg)
+
+The Random Forest fusion model achieved an accuracy of 0.63 with a macro-average F1-score of 0.44, performing similarly to CatBoost in general distribution but weaker on class balance. While it showed good performance on Energetic and Stressed, the Sad and Calm classes were underrepresented in predictions, as reflected in their low recall and F1-scores.
+
+![](Images/rf_classification_report.jpeg)
+
+![](Images/rf_confusion_matrix.jpeg)
+
+Overall, while each meta-model provided valuable insights into the effectiveness of decision-level fusion, XGBoost clearly outperformed the others by offering the best trade-off between overall accuracy (0.66) and macro F1-score (0.57), while maintaining reasonable recall on minority classes. These comparative evaluations further validate the robustness of ensemble-based decision fusion in multimodal emotion classification tasks.
 
 ### References
 
