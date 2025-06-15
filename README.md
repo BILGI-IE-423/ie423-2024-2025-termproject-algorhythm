@@ -120,6 +120,22 @@ For Random Forest, six different configurations were explored. Initially, the mo
 
 For XGBoost, six variants were also tested. Starting from a baseline which is a macro F1 score of 0.26, improvements were observed by incorporating class weights, RandomizedSearchCV, and oversampling techniques. The most successful configuration is when class weight and hyperparameter tuning is used together, demonstrating the importance of both class weights and parameter tuning for handling imbalanced data in textual emotion classification.
 
+### 4.4 Late Fusion: Multimodal Decision-Level Integration
+
+After training and optimizing individual models for each modality—audio features + genre, lyrics embeddings, and album cover visual attributes—the best-performing configurations were selected and brought together into a unified prediction system. This step employed a late fusion architecture, in which the outputs from separate unimodal classifiers were combined at the decision level, a technique widely supported in multimodal learning literature (Francesconi et al., 2025).
+
+In the fusion stage, multiple meta-models were trained using the outputs of the selected base models. Specifically, Logistic Regression, Random Forest, XGBoost, and CatBoost were used as meta-classifiers. Extensive tuning was performed to ensure optimal performance:
+
+For Random Forest, both GridSearchCV and RandomizedSearchCV were applied to optimize hyperparameters.
+
+For XGBoost, two strategies were tested: RandomizedSearchCV without any sampling, and a second variant with SMOTE oversampling combined with hyperparameter tuning.
+
+For CatBoost, the best hyperparameters were identified using RandomizedSearchCV, and the optimized model was used as a meta-classifier.
+
+Based on the evaluation results, the best-performing meta-model was XGBoost with class weight adjustments and RandomizedSearchCV-based hyperparameter tuning. Interestingly, the comparison of configurations also revealed that oversampling did not significantly improve performance in this context, suggesting that class weight adjustments alone were sufficient to address class imbalance in the fusion layer.
+
+This fusion strategy successfully combined the complementary strengths of auditory, visual, and textual modalities while maintaining modularity and interpretability. The ensemble not only improved robustness and generalizability in emotion classification but also helped highlight which input modalities contributed most meaningfully to the final prediction.
+
 
 ### References
 
