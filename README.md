@@ -40,36 +40,34 @@ Additionally, the libraries xgboost, catboost, and scipy were used for model tra
 ### 3.2.Dataset
 To investigate the emotional prediction capability of energy and valence values, and assess the alignment of visual and lyrical features with emotional states, we enriched the original 30,000-track Spotify dataset with multi-modal content.
 
--Audio Features: The dataset includes core attributes like danceability, energy, valence, tempo, and others, directly retrieved via 30,000-track Spotify dataset.
+**Audio Features:** The dataset includes core attributes like danceability, energy, valence, tempo, and others, directly retrieved via 30,000-track Spotify dataset.
 
 
--Album Covers: Using track_album_id, 22,533 unique album images were downloaded and later processed for visual features (e.g., average color, HSV, edge complexity, face presence, colorfulness, dominant color). The colorfulness metric, adapted from Hasler and Süsstrunk’s method, quantifies the perceptual diversity and intensity of colors using red-green and yellow-blue channel statistics. The edge complexity metric, inspired by Roboflow (2022), was computed by converting images to grayscale, applying the Canny edge detection algorithm, and calculating the ratio of edge pixels to total pixels to quantify visual detail.
+**Album Covers:** Using track_album_id, 22,533 unique album images were downloaded and later processed for visual features (e.g., average color, HSV, edge complexity, face presence, colorfulness, dominant color). The colorfulness metric, adapted from Hasler and Süsstrunk’s method, quantifies the perceptual diversity and intensity of colors using red-green and yellow-blue channel statistics. The edge complexity metric, inspired by Roboflow (2022), was computed by converting images to grayscale, applying the Canny edge detection algorithm, and calculating the ratio of edge pixels to total pixels to quantify visual detail.
 
 
--Lyrics: Lyrics were scraped from Genius.com using Selenium, matched by track title and artist. Tracks without lyrics were excluded. Token counts were calculated, and long lyrics were summarized using Gemini-1.5-Flash to fit the input size limits of the embedding model all-MiniLM-L6-v2.
+**Lyrics:** Lyrics were scraped from Genius.com using Selenium, matched by track title and artist. Tracks without lyrics were excluded. Token counts were calculated, and long lyrics were summarized using Gemini-1.5-Flash to fit the input size limits of the embedding model all-MiniLM-L6-v2.
 
 
--Lyrics Embeddings: Summarized lyrics were embedded into 384-dimensional vectors to represent emotional and semantic content for mood prediction and alignment analysis.
+**Lyrics Embeddings:** Summarized lyrics were embedded into 384-dimensional vectors to represent emotional and semantic content for mood prediction and alignment analysis.
 
 
 
 ### 3.3.Process
-Data Loading and Initial Cleaning  
+**Data Loading and Initial Cleaning:** The data processing pipeline consisted of five key stages: cleaning, labeling, transformation, feature extraction, and merging.
 
-The data processing pipeline consisted of five key stages: cleaning, labeling, transformation, feature extraction, and merging.
-
--Data Cleaning: The initial dataset (spotify_songs.csv) was loaded and cleaned by removing missing values, outliers (e.g., loudness values outside -60 to 0 dB), and duplicate track entries to ensure data quality.
+**Data Cleaning:** The initial dataset (spotify_songs.csv) was loaded and cleaned by removing missing values, outliers (e.g., loudness values outside -60 to 0 dB), and duplicate track entries to ensure data quality.
 
 
--Mood Label Assignment: Based on Robert Thayer’s two-dimensional mood model, songs were categorized into four mood clusters. Following the methodology of Lata (2024), both axes were divided into two intervals, resulting in a 2x2 grid of emotional states. This produced four distinct mood labels such as Energetic, Stressed, Sad, and Calm, representing core affective combinations. A custom assign_thayer_mood function was implemented to assign each track to one of these categories, forming the foundation for evaluating the relationship between audio features and emotional perception.
+**Mood Label Assignment:** Based on Robert Thayer’s two-dimensional mood model, songs were categorized into four mood clusters. Following the methodology of Lata (2024), both axes were divided into two intervals, resulting in a 2x2 grid of emotional states. This produced four distinct mood labels such as Energetic, Stressed, Sad, and Calm, representing core affective combinations. A custom assign_thayer_mood function was implemented to assign each track to one of these categories, forming the foundation for evaluating the relationship between audio features and emotional perception.
   
 
 ![](Images/Mood%Label%Assignment%Using%a%2x2%Grid.png)
  
--One-Hot Encoding: The categorical variable playlist_subgenre was converted into binary features using one-hot encoding to make it suitable for machine learning models.
+**One-Hot Encoding:** The categorical variable playlist_subgenre was converted into binary features using one-hot encoding to make it suitable for machine learning models.
 
 
--Merging and Final Dataset: All features—audio, visual, and textual—were merged into a unified DataFrame using track_id and track_album_id. Rows with missing merged features were removed, and the final dataset was saved as final_dataset.csv for model training.
+**Merging and Final Dataset:** All features—audio, visual, and textual—were merged into a unified DataFrame using track_id and track_album_id. Rows with missing merged features were removed, and the final dataset was saved as final_dataset.csv for model training.
 
 ### 3.4 Data Analysis
 
