@@ -62,7 +62,8 @@ To investigate the emotional prediction capability of energy and valence values,
 **Mood Label Assignment:** Based on Robert Thayer’s two-dimensional mood model, songs were categorized into four mood clusters. Following the methodology of Lata (2024), both axes were divided into two intervals, resulting in a 2x2 grid of emotional states. This produced four distinct mood labels such as Energetic, Stressed, Sad, and Calm, representing core affective combinations. A custom assign_thayer_mood function was implemented to assign each track to one of these categories, forming the foundation for evaluating the relationship between audio features and emotional perception.
   
 
-![](Images/Mood%Label%Assignment%Using%a%2x2%Grid.png)
+![](Images/2x2_mood_table.png)
+
  
 **One-Hot Encoding:** The categorical variable playlist_subgenre was converted into binary features using one-hot encoding to make it suitable for machine learning models.
 
@@ -71,10 +72,10 @@ To investigate the emotional prediction capability of energy and valence values,
 
 ### 3.4 Data Analysis
 
-![](Images/Correlation%Matrix%of%Track%Features.png)
+![](Images/Correlation%Matrix.png)
 This correlation matrix illustrates the relationships between track features. A strong positive correlation is observed between energy and loudness (0.68), indicating that higher energy levels are generally associated with higher loudness.
 
-![](Images/Song%Distribution%by%Energy%and%Valence.png)
+![](Images/song_distribution_energy_valence.png)
 
 This chart displays the distribution of songs by low and high energy/valence levels. It shows that low-energy songs significantly outnumber high-energy ones in the dataset.
 
