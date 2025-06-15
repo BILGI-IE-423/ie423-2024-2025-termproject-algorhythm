@@ -140,11 +140,11 @@ This fusion strategy successfully combined the complementary strengths of audito
 
 As seen in the classification report, the model performed particularly well in recognizing Energetic and Stressed classes, achieving F1-scores of 0.72 and 0.64, respectively. The Calm class, being the most underrepresented in the dataset, was more difficult to classify, yet the model still achieved a reasonable F1-score of 0.36, significantly outperforming baseline configurations.
 
-![](Images/late_fusion_classification_report.png)
+![](Images/late_fusion_classification_report.jpeg)
 
 The confusion matrix further illustrates this distribution: while Energetic was predicted with high precision and recall, misclassifications were observed primarily between the Calm and Sad classes, as expected due to their semantic closeness and limited training samples.
 
-![](Images/late_fusion_confusion_matrix.png)
+![](Images/late_fusion_confusion_matrix.jpeg)
 
 These results confirm the effectiveness of combining class weighting and hyperparameter optimization in a late fusion setup and highlight the model's ability to generalize well across both dominant and minority emotional categories.
 
