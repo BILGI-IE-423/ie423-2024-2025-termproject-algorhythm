@@ -82,14 +82,21 @@ This chart displays the distribution of songs by low and high energy/valence lev
 
 ## 4. Model Selection, Sampling Strategies, and Fusion Architecture
 
-To evaluate the emotional predictability of music, we employed a multimodal classification pipeline incorporating audio-genre features, visual album attributes, and embedded lyrics summaries. Our modeling strategy focused not only on maximizing classification accuracy, but also on exploring class imbalance, sampling diversity, and late fusion architectures, inspired by recent advances in multimodal learning and ensemble methods.
+To evaluate the emotional predictability of music, we employed a multimodal classification pipeline incorporating audio-genre features, visual album attributes, and embedded lyrics summaries. Our modeling strategy focused not only on maximizing classification accuracy, but also on exploring class imbalance, sampling diversity, and late fusion architectures, inspired by recent advances in multimodal learning and ensemble methods (Baltrušaitis et al., 2019; Francesconi et al., 2025).
 
 ### 4.1 Model Evaluation: Audio Features + Genre Only
 ![](Images/Audio_Features.png)
 ### 4.2 Model Evaluation: Visual Features Only
 ![](Images/Visuals.png)
 ### 4.3 Model Evaluation: Lyrics Embeddings Only
+
+In this phase of the project, only lyrics embeddings were used to examine the extent to which emotional classification could be achieved through textual features alone. Two main classifiers, Random Forest and XGBoost, were iteratively trained under various configurations to improve performance, particularly in addressing class imbalance and boosting macro-average F1 scores.
+
+For Random Forest, six different configurations were explored. Initially, the model was trained without any intervention, achieving a macro F1 score of 0.26. Subsequent experiments involved the application of class weights, RandomizedSearchCV for hyperparameter optimization, and oversampling techniques including SMOTE, ADASYN, and SMOTEENN. The best result was achieved using RandomSearchCV combined with class weighting.
+
 ![](Images/Lyrics.png)
+
+For XGBoost, six variants were also tested. Starting from a baseline which is a macro F1 score of 0.26, improvements were observed by incorporating class weights, RandomizedSearchCV, and oversampling techniques. The most successful configuration is when class weight and hyperparameter tuning is used together, demonstrating the importance of both class weights and parameter tuning for handling imbalanced data in textual emotion classification.
 
 ### References
 
