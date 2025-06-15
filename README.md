@@ -80,6 +80,17 @@ This correlation matrix illustrates the relationships between track features. A 
 
 This chart displays the distribution of songs by low and high energy/valence levels. It shows that low-energy songs significantly outnumber high-energy ones in the dataset.
 
+## 4. Model Selection, Sampling Strategies, and Fusion Architecture
+
+To evaluate the emotional predictability of music, we employed a multimodal classification pipeline incorporating audio-genre features, visual album attributes, and embedded lyrics summaries. Our modeling strategy focused not only on maximizing classification accuracy, but also on exploring class imbalance, sampling diversity, and late fusion architectures, inspired by recent advances in multimodal learning and ensemble methods.
+
+### 4.1 Model Evaluation: Audio Features + Genre Only
+![](Images/Audio%Features.png)
+### 4.2 Model Evaluation: Visual Features Only
+![](Images/Visuals.png)
+### 4.3 Model Evaluation: Lyrics Embeddings Only
+![](Images/Lyrics.png)
+
 ### References
 
 Baltrušaitis, T., Ahuja, C., & Morency, L.-P. (2019). Multimodal machine learning: A survey and taxonomy. IEEE Transactions on Pattern Analysis and Machine Intelligence, 41(2), 423–443. https://doi.org/10.1109/TPAMI.2018.2798607
