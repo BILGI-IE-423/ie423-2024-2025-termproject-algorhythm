@@ -6,6 +6,10 @@
 121203079 Yeliz Avcı  
 120203034 Sevgi Gündoğdu  
 
+### Website of the Project
+
+https://sgundogd.github.io/Website_algorhythm/
+
 ## 1.Scope of the Project
 
 This project aims to measure whether it can accurately predict the emotional states conveyed by songs using multidimensional features. In addition to the Spotify dataset, album cover images and lyrics were used. The main goal of the project is to measure whether we can predict the emotion conveyed by a song by holistically analyzing audio-based , visual (album cover) and textual (lyrics) features using machine learning techniques. The project is based on the two-dimensional energy-valence matrix, which is Thayer's Mood Model to describe emotions. Songs are divided into emotional clusters such as energetic, sad, calm, stressed. The main focuses of the project are:  
@@ -116,9 +120,6 @@ For Random Forest, six different configurations were explored. Initially, the mo
 
 For XGBoost, six variants were also tested. Starting from a baseline which is a macro F1 score of 0.26, improvements were observed by incorporating class weights, RandomizedSearchCV, and oversampling techniques. The most successful configuration is when class weight and hyperparameter tuning is used together, demonstrating the importance of both class weights and parameter tuning for handling imbalanced data in textual emotion classification.
 
-### Website of the Project
-
-https://sgundogd.github.io/Website_algorhythm/
 
 ### References
 
